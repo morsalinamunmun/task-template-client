@@ -11,6 +11,7 @@ import AuthProvider from './Provider/AuthProvider';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Signout from './components/Signup/Signup';
+import Dashboard from './Main/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -28,9 +29,13 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signout></Signout>
-    }
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
+      }
     ]
-  },
+  } 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
