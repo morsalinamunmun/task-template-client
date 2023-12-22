@@ -5,13 +5,13 @@ import { Link,useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-//import useAxiosPublic from '../../hooks/useAxiosPublic';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 //import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 
 
 const SignUp = () => {
-    //const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
     const {
         register,
         handleSubmit,
@@ -66,21 +66,21 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input border-teal-500 border-2" required />
+                                <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input border-orange-500 border-2" required />
                                 {errors.name && <span className="text-red-600">Name is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo Url" className="input border-teal-500 border-2" required />
+                                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo Url" className="input border-orange-500 border-2" required />
                                 {errors.photoURL && <span className="text-red-600">Photo Url is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, })} name="email" placeholder="Email" className="input border-teal-500 border-2" required />
+                                <input type="email" {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, })} name="email" placeholder="Email" className="input border-orange-500 border-2" required />
                                 {errors.email && errors.email.type === "required" && (
                                     <span className="text-red-600">Email is required</span>
                                 )}
@@ -95,7 +95,7 @@ const SignUp = () => {
                                 <input type="password" {...register("password", {
                                     required: true, minLength: 6, maxLength: 20,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                                })} name="password" placeholder="password" className="input border-teal-500 border-2" required />
+                                })} name="password" placeholder="password" className="input border-orange-500 border-2" required />
                                 {errors.password?.type === "required" && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === "minLength" && <p className="text-red-600">Password must be 6 character</p>}
                                 {errors.password?.type === "maxLength" && <p className="text-red-600">Password must be less than 20 character</p>}
@@ -105,10 +105,10 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-teal-500 text-white border-0">Sign Up</button>
+                                <button className="btn bg-orange-500 text-white border-0">Sign Up</button>
                             </div>
                         </form>
-                        <p>Already have an account? <Link to="/login" className='text-teal-500'>Log In</Link></p>
+                        <p>Already have an account? <Link to="/login" className='text-orange-500'>Log In</Link></p>
                     </div>
                 </div>
             </div>
