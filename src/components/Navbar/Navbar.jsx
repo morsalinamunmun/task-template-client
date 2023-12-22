@@ -1,6 +1,10 @@
 
 import { Link, NavLink } from "react-router-dom";
+
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext);
     const menus = <>
               <li><NavLink to='/' className={({isActive, isPending})=> isPending ? "pending" : isActive ? "text-orange-500 border-r-2 border-orange-500 pr-2" : ""}>Home</NavLink></li>
               <li><NavLink to='/available' className={({isActive, isPending})=> isPending ? "pending" : isActive ? "text-orange-500 border-r-2 border-orange-500 pr-2" : ""}>Available Foods</NavLink></li>
@@ -9,11 +13,11 @@ const Navbar = () => {
     </>
 
 
-// const handleLogOut = ()=>{
-//     logOut()
-//     .then(()=> console.log('logout'))
-//     .catch(error=> console.error(error))
-// }
+const handleLogOut = ()=>{
+    logOut()
+    .then(()=> console.log('logout'))
+    .catch(error=> console.error(error))
+}
     return (
         <div className="navbar bg-base-100 ">
             <div className="lg:w-[30%]">
@@ -33,6 +37,24 @@ const Navbar = () => {
                     {menus}
                 </ul>  
             </div>
+            {
+                    user ? 
+                    <>
+                         <div className="dropdown dropdown-end">
+                            <label   tabIndex ={0} className="btn btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} alt="" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="p-2 shadow menu menu-sm dropdown-content z-[1] bg-base-100 rounded-box w-36">
+                                <li className="font-semibold text-center mb-2">{user.displayName}</li>
+                                <li><a onClick={handleLogOut} className="py-2 px-3 text-white flex mx-auto text-center font-semibold rounded-full bg-orange-500 cursor-pointer">Sign Out</a></li>
+                            </ul>
+                        </div>                       
+                    </> : 
+                    <Link to='/login' className="ml-10 md:ml-40 lg:ml-0 lg:w-[9%] border-orange-500 rounded-full border-2 px-5 py-2 font-semibold">Log In</Link>
+            }
+
         </div>
     );
 };
