@@ -12,15 +12,24 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Signout from './components/Signup/Signup';
 import Dashboard from './Main/Dashboard';
+import Todo from './components/Dashboard/Todo';
+import Ongoing from './components/Dashboard/Ongoing';
+import Complete from './components/Dashboard/Complete';
+import PrivateRoute from './components/Routes/PrivateRoute';
+import Benefit from './components/categoryPeople/Benefit';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    children:[
+    children: [
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/benefit',
+        element: <Benefit></Benefit>
       },
       {
         path: '/login',
@@ -29,19 +38,33 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signout></Signout>
-      },
-      {
-        path: '/dashboard',
-        element: <Dashboard></Dashboard>
       }
     ]
-  } 
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: 'todo',
+        element: <Todo></Todo>
+      },
+      {
+        path: 'ongoing',
+        element: <Ongoing></Ongoing>
+      },
+      {
+        path: 'complete',
+        element: <Complete></Complete>
+      },
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
 )
