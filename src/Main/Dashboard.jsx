@@ -16,7 +16,7 @@ const Dashboard = () => {
         const taskInfo = { task, number, name, imgUrl }
 
         //send form data to server
-        fetch('http://localhost:5173/task', {
+        fetch('https://task-template-server.vercel.app/task', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
