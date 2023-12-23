@@ -21,7 +21,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/dashboard')
                 if (result.user) {
                     toast.success('Login has been successfully')
                 }
