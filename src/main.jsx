@@ -17,6 +17,7 @@ import Ongoing from './components/Dashboard/Ongoing';
 import Complete from './components/Dashboard/Complete';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import Benefit from './components/categoryPeople/Benefit';
+import FQA from './components/FQA/FQA';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/benefit',
         element: <Benefit></Benefit>
+      },
+      {
+        path: '/fqa',
+        element: <FQA></FQA>
       },
       {
         path: '/login',
