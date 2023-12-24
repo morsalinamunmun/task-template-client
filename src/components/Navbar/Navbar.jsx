@@ -30,7 +30,7 @@ const handleLogOut = ()=>{
                     </ul>
                 </div>
                 {/* <img className="w-14" src={logo} alt="" /> */}
-                <Link to='/' className="ml-3 font-semibold normal-case text-xl"><span className="text-orange-500">SCC </span>Technovision Inc</Link>
+                <Link to='/' className="ml-3 font-semibold normal-case text-xl"><span className="text-orange-500">SCC </span>Task Management</Link>
             </div>
             <div className="w-[70%] lg:ml-64 hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-2">
