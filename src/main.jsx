@@ -18,6 +18,7 @@ import Complete from './components/Dashboard/Complete';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import Benefit from './components/categoryPeople/Benefit';
 import FQA from './components/FQA/FQA';
+import AllTask from './components/AllTask/AllTask';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/fqa',
         element: <FQA></FQA>
+      },
+      {
+        path: '/allTask',
+        element: <AllTask></AllTask>
       },
       {
         path: '/login',

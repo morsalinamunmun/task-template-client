@@ -46,7 +46,10 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/complete'> Completed</NavLink></li>
             </ul>
             <div className="flex">
-                <form className="card-body md:mx-40" onSubmit={handleAddTask}>
+                <div className="">
+                    <Outlet></Outlet>
+                </div>
+                <form className="card-body w-10" onSubmit={handleAddTask}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -74,13 +77,8 @@ const Dashboard = () => {
                     <div className="form-control mt-6">
                         <input className="bg-orange-500 rounded-lg p-3 text-white cursor-pointer" type="submit" value="Add Task" />
                     </div>
-
                 </form>
 
-
-                <div className="flex-1">
-                    <Outlet></Outlet>
-                </div>
             </div>
         </div>
 
