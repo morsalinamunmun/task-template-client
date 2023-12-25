@@ -54,6 +54,7 @@ const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    loader: ()=>fetch('https://task-template-server.vercel.app/task'),
     children: [
       {
         path: 'todo',
