@@ -76,9 +76,10 @@ const Todo = () => {
         })
     }
     return (
-            <div>
+            <div className="">
+                <h1 className="text-2xl border border-orange-500  font-bold">To Do</h1>
                 {
-                    task.map(isTask => <div className="mt-5 ml-2" key={isTask._id}>
+                    task.map(isTask => <div className="mt-5 ml-2 border-2 p-3" key={isTask._id}>
                         <h2 className="text-xl font-bold">Task</h2>
                         <div className="space-y-5">
                             <p>{isTask.task}</p>

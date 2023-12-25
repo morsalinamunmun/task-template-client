@@ -12,9 +12,6 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Signout from './components/Signup/Signup';
 import Dashboard from './Main/Dashboard';
-import Todo from './components/Dashboard/Todo';
-import Ongoing from './components/Dashboard/Ongoing';
-import Complete from './components/Dashboard/Complete';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import Benefit from './components/categoryPeople/Benefit';
 import FQA from './components/FQA/FQA';
@@ -56,18 +53,18 @@ const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     loader: ()=>fetch('https://task-template-server.vercel.app/task'),
     children: [
-      {
-        path: 'todo',
-        element: <Todo></Todo>
-      },
-      {
-        path: 'ongoing',
-        element: <Ongoing></Ongoing>
-      },
-      {
-        path: 'complete',
-        element: <Complete></Complete>
-      },
+      // {
+      //   path: 'todo',
+      //   element: <Todo></Todo>
+      // },
+      // {
+      //   path: 'ongoing',
+      //   element: <Ongoing></Ongoing>
+      // },
+      // {
+      //   path: 'complete',
+      //   element: <Complete></Complete>
+      // },
     ]
   }
 ]);
